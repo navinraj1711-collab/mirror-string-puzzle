@@ -1,0 +1,35 @@
+import java.util.Scanner;
+
+public class MirrorString {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        
+       
+        if (!sc.hasNextLine()) return;
+        
+        String s = sc.nextLine();
+        
+        if (s.length() < 1 || s.length() > 100) return;
+
+        StringBuilder mirrored = new StringBuilder();
+
+        for (int i = 0; i < s.length(); i++) {
+            char ch = s.charAt(i);
+            
+            if (Character.isDigit(ch)) {
+                System.out.println("Invalid input");
+                return;
+            }
+
+           
+            if (ch >= 'a' && ch <= 'z') {
+                char mirrorChar = (char) ('z' - (ch - 'a'));
+                mirrored.append(mirrorChar);
+            } else {
+                mirrored.append(ch);
+            }
+        }
+        
+        System.out.println(mirrored.toString());
+    }
+}
